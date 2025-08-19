@@ -859,6 +859,182 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- Popup Overlay -->
+<div id="popup" role="dialog" aria-modal="true">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    
+    <!-- Left Content -->
+    <div class="popup-left">
+      <h2>The story loom international</h2>
+      <p>This Onam, Story Loom International joins in the joy of the festival by celebrating togetherness, prosperity, and happiness.</p>
+      
+      <h3>DESIGN PROPOSAL</h3>
+      <ul>
+        <li>Writers/Bloggers -> Articles, guides, stories</li>
+        <li>Poem writing (poetry writing).</li>
+        <li>Bussiness content.</li>
+      </ul>
+      
+      <a href="index.html" class="btn-primary">Welcome</a>
+      <button class="btn-secondary">I prefer a Teams plan</button>
+
+
+    </div>
+    
+    <!-- Right Side Image -->
+    <div class="popup-right">
+      <img src="./assets/img/popup.png" alt="Popup Image">
+    </div>
+  </div>
+</div>
+
+<!-- Styles -->
+<style>
+  /* Overlay */
+  #popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none; /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Popup Box */
+  .popup-content {
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1000px;
+    max-height: 90vh; /* limit height */
+    overflow-y: auto; /* scroll if needed */
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    position: relative;
+  }
+
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #ffffff;
+    z-index: 10;
+  }
+
+  /* Left Content */
+  .popup-left {
+    flex: 1;
+    padding: 30px;
+  }
+
+  .popup-left h2 {
+    margin: 0 0 15px;
+    font-size: 24px;
+  }
+
+  .popup-left p {
+    font-size: 16px;
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+
+  .popup-left h3 {
+    margin: 15px 0;
+    font-size: 18px;
+  }
+
+  .popup-left ul {
+    margin: 15px 0;
+    padding-left: 20px;
+  }
+
+  .btn-primary {
+    background: #10bc69;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+
+  .btn-secondary {
+    background: #eee;
+    color: #333;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  /* Right Image */
+  .popup-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fafafa;
+    padding: 20px;
+  }
+
+  .popup-right img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+  }
+
+  /* Responsive for Mobile */
+  @media (max-width: 768px) {
+    .popup-content {
+      flex-direction: column;
+    }
+    .popup-left, .popup-right {
+      flex: none;
+      width: 100%;
+      padding: 20px;
+    }
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      margin: 10px 0 0;
+    }
+  }
+</style>
+
+<!-- Script -->
+<script>
+  // Open popup automatically
+  window.onload = function() {
+    document.getElementById("popup").style.display = "flex";
+    document.body.style.overflow = "hidden"; // disable background scroll
+  }
+
+  // Close popup
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.body.style.overflow = "auto"; // re-enable scroll
+  }
+
+  // Allow ESC key to close popup
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      closePopup();
+    }
+  });
+</script>
 
 </body>
 
